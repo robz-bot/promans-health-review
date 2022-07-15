@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { SurveyComponent } from './Pages/survey/survey.component';
+import { SurveySuccessComponent } from './Pages/survey-success/survey-success.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SurveyComponent
+    SurveyComponent,
+    SurveySuccessComponent
   ],
   imports: [
     BrowserModule,

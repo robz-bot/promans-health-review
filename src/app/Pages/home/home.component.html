@@ -1,126 +1,149 @@
 <!--Div for Background-->
-<div class="bg ">
-    <div class="container row">
-      <div class="col-lg-6">
-        <div class="container">
-          <img
-            class="mt-4"
-            src="assets/img/form.png"
-            style="height: 500px; width: 500px;border-radius: 40px;"
-          />
-        </div>
+<div class="bg">
+  <div class="container row">
+    <div class="col-lg-7">
+      <div class="container text-center">
+        <img
+          class="mt-4"
+          src="assets/img/form.png"
+          style="height: 500px; width: 600px"
+        />
       </div>
-      <div class="col-lg-6">
-        <div class="container my-3">
-          <h4 class="text-warning text-center">Promantus Health Review</h4>
-          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-            <fieldset>
-              <div class="form-group">
-                <label class="form-label mt-4 text-light">Name</label>
-                <input
-                  type="text"
-                  class="form-control form-control-sm"
-                  placeholder="Name"
-                  formControlName="name"
-                />
-  
+    </div>
+    <div class="col-lg-5">
+      <div class="container mt-4">
+        <h4 class="text-dark text-center fadeIn a4 d2 reverse">
+          Promantus Health Review <i class="bi bi-heart-pulse-fill"></i>
+        </h4>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <fieldset>
+            <div class="form-group">
+              <label class="form-label mt-4 text-light">Name</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="Name"
+                formControlName="name"
+              />
+
+              <div
+                *ngIf="
+                  !registerForm.controls['name'].valid &&
+                  (registerForm.controls['name'].dirty ||
+                    registerForm.controls['name'].touched)
+                "
+                class="bg-danger"
+              >
                 <div
-                  *ngIf="
-                    !registerForm.controls['name'].valid &&
-                    (registerForm.controls['name'].dirty ||
-                      registerForm.controls['name'].touched)
-                  "
-                  class="bg-danger"
+                  [hidden]="!registerForm.controls['name'].errors?.['required']"
                 >
-                  <div
-                    [hidden]="!registerForm.controls['name'].errors?.['required']"
-                  >
-                    <small class="text-light">Name is required</small>
-                  </div>
+                  <small class="text-light mx-2">Name is required</small
+                  ><i
+                    class="bi bi-exclamation-triangle float-end mx-2 text-light"
+                  ></i>
                 </div>
               </div>
-              <div class="form-group">
-                <label class="form-label mt-4 text-light">Employee Code</label>
-                <input
-                  type="text"
-                  class="form-control form-control-sm"
-                  placeholder="Employee Code"
-                  formControlName="employeeCode"
-                />
-  
+            </div>
+            <div class="form-group">
+              <label class="form-label mt-4 text-light">Employee Code</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="Employee Code"
+                formControlName="employeeCode"
+              />
+
+              <div
+                *ngIf="
+                  !registerForm.controls['employeeCode'].valid &&
+                  (registerForm.controls['employeeCode'].dirty ||
+                    registerForm.controls['employeeCode'].touched)
+                "
+                class="bg-danger"
+              >
                 <div
-                  *ngIf="
-                    !registerForm.controls['employeeCode'].valid &&
-                    (registerForm.controls['employeeCode'].dirty ||
-                      registerForm.controls['employeeCode'].touched)
-                  "
-                  class="bg-danger"
+                  [hidden]="!registerForm.controls['employeeCode'].errors?.['required']"
                 >
-                  <div
-                    [hidden]="!registerForm.controls['employeeCode'].errors?.['required']"
-                  >
-                    <small class="text-light">Employee Code is required</small>
-                  </div>
+                  <small class="text-light mx-2"
+                    >Employee Code is required</small
+                  ><i
+                    class="bi bi-exclamation-triangle float-end mx-2 text-light"
+                  ></i>
                 </div>
               </div>
-              <div class="form-group">
-                <label class="form-label mt-4 text-light">Company</label>
-                <input
-                  type="text"
-                  class="form-control form-control-sm"
-                  placeholder="Company"
-                  formControlName="company"
-                />
-  
+            </div>
+            <div class="form-group">
+              <label class="form-label mt-4 text-light">Company</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="Company"
+                formControlName="company"
+              />
+
+              <div
+                *ngIf="
+                  !registerForm.controls['company'].valid &&
+                  (registerForm.controls['company'].dirty ||
+                    registerForm.controls['company'].touched)
+                "
+                class="bg-danger"
+              >
                 <div
-                  *ngIf="
-                    !registerForm.controls['company'].valid &&
-                    (registerForm.controls['company'].dirty ||
-                      registerForm.controls['company'].touched)
-                  "
-                  class="bg-danger"
+                  [hidden]="!registerForm.controls['company'].errors?.['required']"
                 >
-                  <div
-                    [hidden]="!registerForm.controls['company'].errors?.['required']"
-                  >
-                    <small class="text-light">Company is required</small>
-                  </div>
+                  <small class="text-light mx-2">Company is required</small
+                  ><i
+                    class="bi bi-exclamation-triangle float-end mx-2 text-light"
+                  ></i>
                 </div>
               </div>
-              <div class="form-group">
-                <label class="form-label mt-4 text-light">Manager</label>
-                <input
-                  type="text"
-                  class="form-control form-control-sm"
-                  placeholder="Manager"
-                  formControlName="manager"
-                />
-  
+            </div>
+            <div class="form-group">
+              <label class="form-label mt-4 text-light">Manager</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="Manager"
+                formControlName="manager"
+              />
+
+              <div
+                *ngIf="
+                  !registerForm.controls['manager'].valid &&
+                  (registerForm.controls['manager'].dirty ||
+                    registerForm.controls['manager'].touched)
+                "
+                class="bg-danger"
+              >
                 <div
-                  *ngIf="
-                    !registerForm.controls['manager'].valid &&
-                    (registerForm.controls['manager'].dirty ||
-                      registerForm.controls['manager'].touched)
-                  "
-                  class="bg-danger"
+                  [hidden]="!registerForm.controls['manager'].errors?.['required']"
                 >
-                  <div
-                    [hidden]="!registerForm.controls['manager'].errors?.['required']"
-                  >
-                    <small class="text-light">Manager is required</small>
-                  </div>
+                  <small class="text-light mx-2">Manager is required</small
+                  ><i
+                    class="bi bi-exclamation-triangle float-end mx-2 text-light"
+                  ></i>
                 </div>
               </div>
-            </fieldset>
-            <br/>
-            <fieldset class="text-center">
-              <button type="submit" class="btn btn-warning btn-md mt-2 text-center " [disabled]="!registerForm.valid">Start Survey</button>
+            </div>
           </fieldset>
-          </form>
-          <fieldset class="text-center my-2"><small class="text-secondary">Copyright &copy; 2022 - Promantus Inc.</small></fieldset>
-          
-        </div>
+          <br />
+          <fieldset class="text-center">
+            <button
+              type="submit"
+              class="btn btn-dark btn-md mt-2 text-center"
+              [disabled]="!registerForm.valid"
+            >
+              Start Survey
+            </button>
+          </fieldset>
+        </form>
+        <fieldset class="text-center my-2">
+          <small class="text-dark"
+            >Copyright &copy; 2022 - Promantus Inc.</small
+          >
+        </fieldset>
       </div>
     </div>
   </div>
-  
+</div>

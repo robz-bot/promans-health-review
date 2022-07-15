@@ -2,7 +2,8 @@
     width: 100%;
     height:auto;
 	min-height:100vh;
-    background-image:url("https://i.imgur.com/w16HASj.png");
+    /* background-image:url("https://i.imgur.com/w16HASj.png"); */
+    background-color: #00bfa6;
     background-size: 100% 100%;
     background-position: top center;
   }

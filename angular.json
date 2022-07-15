@@ -28,6 +28,7 @@
             ],
             "styles": [
               "src/styles.css","src/assets/css/bootstrap.min.css"
+              ,"src/assets/css/tachyons-animate.min.css"
             ],
             "scripts": []
           },

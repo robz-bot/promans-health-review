@@ -1,0 +1,15 @@
+.stroke {
+    font-size: 46px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #323635;
+    -webkit-text-fill-color: #00bfa6;
+    letter-spacing: 2px;
+    font-family: Impact, Charcoal, sans-serif;
+    text-shadow: 1px 6px 3px rgba(163, 163, 163, 0.84);
+}
+
+.btn-success1 {
+    color: #fff;
+    background-color: #00bfa6;
+    border-color: #00bfa6;
+}

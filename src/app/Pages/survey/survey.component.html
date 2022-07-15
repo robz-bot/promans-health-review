@@ -1,119 +1,363 @@
 <section class="container">
-    <h3 class="text-center text-danger">Health Survey Questions for Health Assessment </h3>
-    <div class="row">
-      <!-- Question 1 -->
-      <div class="col-lg-4 col-sm-12 col-md-2 mt-3 d-flex align-items-stretch">
-        <div class="card">
-          <div class="card-header"> <p class="mb-0">
-              How healthy do you consider yourself on a scale of 1 to 10?
-            </p></div>
-          <div class="card-body">
-            <output class="badge bg-primary float-end" name="ageOutputName" id="healthyOutputId">1</output>
-            <input
-              type="range"
-              class="form-range"
-              min="1"
-              max="10"
-              step="1"
-              value="1"
-              id="healthyInputId"
-              oninput="healthyOutputId.value = healthyInputId.value"
-            />
-          </div>
-        </div>
-      </div>
-      <!-- Question 2 -->
-      <div class="col-lg-4 col-sm-12 col-md-2 mt-3 ">
-        <div class="card">
-          <div class="card-header">  <p class="mb-0">
-              How often do you get a health checkup?
-            </p></div>
-          <div class="card-body">
-            <select class="form-select form-select-sm my-4" aria-label="Default select example">
-              <option selected>Select</option>
-              <option value="Once in 3 months">Once in 3 months</option>
-              <option value="Once in 6 months">Once in 6 months</option>
-              <option value="Once a year">Once a year</option>
-              <option value="Only when needed">Only when needed</option>
-              <option value="Never get it done">Never get it done</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <!-- Question 3 -->
-      <div class="col-lg-4 col-sm-12 col-md-2 mt-3 d-flex align-items-stretch">
-        <div class="card">
-          <div class="card-header"><p class="mb-0">
-              What do you say about your overall health?
-            </p></div>
-          <div class="card-body">
-            
-            <select class="form-select form-select-sm my-2" aria-label="Default select example">
-              <option selected>Select</option>
-              <option value="Having Good Physical Health">Having Good Physical Health</option>
-              <option value="Moderately physically impaired">Moderately physically impaired</option>
-              <option value="Severely physically impaired">Severely physically impaired</option>
-              <option value="Only when needed">Only when needed</option>
-              <option value="Totally physically impaired">Totally physically impaired</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <!-- Questions 4 -->
-      <div class="col-lg-4 col-sm-12 col-md-2 mt-3 ">
-        <div class="card">
-          <div class="card-header"><p class="mb-0">
-              Do you have any chronic diseases?
-            </p></div>
-          <div class="card-body my-4">
-              <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions"  value="Yes">
-                  <label class="form-check-label" >Yes</label>
+  <h3 class="text-center text-dark bg-success1" style="height: 50px">
+    Health Survey Questions <i class="bi bi-activity"></i>
+  </h3>
+  <div class="row">
+    <div class="col-lg-12">
+      <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+        <ol class="list-group list-group-numbered">
+          <!-- Question 1 -->
+          <li class="list-group-item d-flex">
+            <div class="row w-100">
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <div class="mx-2 fw-bold">
+                  <p>
+                    How healthy do you consider yourself on a scale of 1 to 10?
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12 d-flex">
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="10"
+                  step="1"
+                  value="1"
+                  id="healthyInputId"
+                  oninput="healthyOutputId.value = healthyInputId.value"
+                  formControlName="qn1"
+                  name="qn1"
+                /><output
+                  class="badge bg-success1 rounded-pill mx-2 my-2 mt-1"
+                  name="ageOutputName"
+                  id="healthyOutputId"
+                  >1</output
+                >
+              </div>
+            </div>
+          </li>
+          <!-- Question 2 -->
+          <li class="list-group-item d-flex">
+            <div class="row w-100">
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <div class="mx-2 fw-bold">
+                  <p>How often do you get a health checkup?</p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  formControlName="qn2"
+                  name="qn2"
+                >
+                <option value="">Select</option>
+                  <option value="Once in 3 months">Once in 3 months</option>
+                  <option value="Once in 6 months">Once in 6 months</option>
+                  <option value="Once a year">Once a year</option>
+                  <option value="Only when needed">Only when needed</option>
+                  <option value="Never get it done">Never get it done</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <!-- Question 3 -->
+          <li class="list-group-item d-flex">
+            <div class="row w-100">
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <div class="mx-2 fw-bold">
+                  <p>What do you say about your overall health?</p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  formControlName="qn3"
+                  name="qn3"
+                ><option value="">Select</option>
+                  <option value="Having Good Physical Health">
+                    Having Good Physical Health
+                  </option>
+                  <option value="Moderately physically impaired">
+                    Moderately physically impaired
+                  </option>
+                  <option value="Severely physically impaired">
+                    Severely physically impaired
+                  </option>
+                  <option value="Only when needed">Only when needed</option>
+                  <option value="Totally physically impaired">
+                    Totally physically impaired
+                  </option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <!-- Question 4 -->
+          <li class="list-group-item d-flex">
+            <div class="row w-100">
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <div class="mx-2 fw-bold">
+                  <p>Do you have any chronic diseases?</p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="qn4"
+                    value="Yes"
+                    formControlName="qn4"
+                  />
+                  <label class="form-check-label">Yes</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" checked value="No">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="qn4"
+                    checked
+                    value="No"
+                    formControlName="qn4"
+                  />
                   <label class="form-check-label">No</label>
                 </div>
-          </div>
-        </div>
-      </div>
-      <!-- Questions 5 -->
-      <div class="col-lg-4 col-sm-12 col-md-2 mt-3 ">
-        <div class="card">
-          <div class="card-header"> <p class="mb-0">
-              Do you have any hereditary conditions/diseases?
-            </p></div>
-          <div class="card-body">
-           
-            <select class="form-select form-select-sm my-2" aria-label="Default select example">
-              <option selected>Select</option>
-              <option value="High blood pressure">High blood pressure</option>
-              <option value="Diabetes">Diabetes</option>
-              <option value="Hemophilia">Hemophilia</option>
-              <option value="Thalassemia">Thalassemia</option>
-              <option value="Huntington">Huntington</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <!-- Questions 6 -->
-      <div class="col-lg-4 col-sm-12 col-md-2 mt-3 ">
-        <div class="card">
-          <div class="card-header"> <p class="mb-0">
-              Are you habitual to drugs and alcohol?
-            </p></div>
-          <div class="card-body my-2">
-            <select class="form-select form-select-sm my-3" aria-label="Default select example">
-              <option selected>Select</option>
-              <option value="Yes to both">Yes to both</option>
-              <option value="Only to drugs">Only to drugs</option>
-              <option value="Only to alcohol">Only to alcohol</option>
-              <option value="I am not habituated to either">I am not habituated to either</option>
-            </select>
-          </div>
-        </div>
-      </div>
+              </div>
+            </div>
+          </li>
+          <!-- Question 5 -->
+          <li class="list-group-item d-flex">
+            <div class="row w-100">
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <div class="mx-2 fw-bold">
+                  <p>Do you have any hereditary conditions/diseases?</p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  formControlName="qn5"
+                  name="qn5"
+                ><option value="">Select</option>
+                  <option value="None">None</option>
+                  <option value="High blood pressure">
+                    High blood pressure
+                  </option>
+                  <option value="Diabetes">Diabetes</option>
+                  <option value="Hemophilia">Hemophilia</option>
+                  <option value="Thalassemia">Thalassemia</option>
+                  <option value="Huntington">Huntington</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <!-- Question 6 -->
+          <li class="list-group-item d-flex">
+            <div class="row w-100">
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <div class="mx-2 fw-bold">
+                  <p>Are you habitual to drugs and alcohol?</p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  formControlName="qn6"
+                  name="qn6"
+                ><option value="">Select</option>
+                  <option value="I am not habituated to either">
+                    I am not habituated to either
+                  </option>
+                  <option value="Yes to both">Yes to both</option>
+                  <option value="Only to drugs">Only to drugs</option>
+                  <option value="Only to alcohol">Only to alcohol</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <!-- Question 7 -->
+          <li class="list-group-item d-flex">
+            <div class="row w-100">
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <div class="mx-2 fw-bold">
+                  <p>
+                    Over the past 2 weeks, how often have you felt nervous,
+                    anxious, or on edge?
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  formControlName="qn7"
+                  name="qn7"
+                ><option value="">Select</option>
+                  <option value="Not all">Not all</option>
+                  <option value="Several days">Several days</option>
+                  <option value="More days than not">More days than not</option>
+                  <option value="Nearly every day">Nearly every day</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <!-- Question 8 -->
+          <li class="list-group-item d-flex">
+            <div class="row w-100">
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <div class="mx-2 fw-bold">
+                  <p>
+                    Over the past 2 weeks, how often have you felt down,
+                    depressed, or hopeless?
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  formControlName="qn8"
+                  name="qn8"
+                ><option value="">Select</option>
+                  <option value="Not all">Not all</option>
+                  <option value="Several days">Several days</option>
+                  <option value="More days than not">More days than not</option>
+                  <option value="Nearly every day">Nearly every day</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <!-- Question 9 -->
+          <li class="list-group-item d-flex">
+            <div class="row w-100">
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <div class="mx-2 fw-bold">
+                  <p>
+                    Over the past 2 weeks, how often have you felt little
+                    interest or pleasure in doing things?
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  formControlName="qn9"
+                  name="qn9"
+                ><option value="">Select</option>
+                  <option value="Not all">Not all</option>
+                  <option value="Several days">Several days</option>
+                  <option value="More days than not">More days than not</option>
+                  <option value="Nearly every day">Nearly every day</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <!-- Question 10 -->
+          <li class="list-group-item d-flex">
+            <div class="row w-100">
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <div class="mx-2 fw-bold">
+                  <p>
+                    How would you describe the condition of your mouth and
+                    teeth, including false teeth or dentures?
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  formControlName="qn10"
+                  name="qn10"
+                ><option value="">Select</option>
+                  <option value="Excellent">Excellent</option>
+                  <option value="Good">Good</option>
+                  <option value="Average">Average</option>
+                  <option value="Poor">Poor</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <!-- Question 11 -->
+          <li class="list-group-item d-flex">
+            <div class="row w-100">
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <div class="mx-2 fw-bold">
+                  <p>
+                    How often do you have trouble taking medicines the way you
+                    have been told to take them?
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  formControlName="qn11"
+                  name="qn11"
+                ><option value="">Select</option>
+                  <option value="I do not have to take medicine">
+                    I do not have to take medicine
+                  </option>
+                  <option value="I always take them as prescribed">
+                    I always take them as prescribed
+                  </option>
+                  <option value="Sometimes I take them as prescribed">
+                    Sometimes I take them as prescribed
+                  </option>
+                  <option value="I seldom take them as prescribed">
+                    I seldom take them as prescribed
+                  </option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <!-- Question 12 -->
+          <li class="list-group-item d-flex">
+            <div class="row w-100">
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <div class="mx-2 fw-bold">
+                  <p>
+                    On how many of the last 7 days did you engage in moderate to
+                    strenuous exercise (like a brisk walk)?
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  formControlName="qn12"
+                  name="qn12"
+                ><option value="">Select</option>
+                  <option value="0 Day">0 Day</option>
+                  <option value="1 Day">1 Day</option>
+                  <option value="2 Days">2 Days</option>
+                  <option value="3 Days">3 Days</option>
+                  <option value="4 Days">4 Days</option>
+                  <option value="5 Days">5 Days</option>
+                  <option value="6 Days">6 Days</option>
+                  <option value="7 Days">7 Days</option>
+                </select>
+              </div>
+            </div>
+          </li>
+        </ol>
+        <fieldset class="text-center">
+          <button
+            type="submit"
+            class="btn btn-md btn-success1 my-2 btn-center"
+            [disabled]="!surveyForm.valid"
+          >
+            Submit
+          </button>
+        </fieldset>
+      </form>
     </div>
-  </section>
-  
+  </div>
+</section>

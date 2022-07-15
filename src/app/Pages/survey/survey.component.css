@@ -1,0 +1,25 @@
+:root{
+    --success1:#00bfa6;
+}
+.bg-success1, .btn-success1 {
+    color: #fff;
+    background-color:#00bfa6;
+    border-color: #00bfa6;
+}
+
+.form-check-input:checked {
+    background-color: #00bfa6;
+    border-color: #00bfa6;
+}
+
+.form-range::-webkit-slider-thumb {
+    background: #00bfa6;
+  }
+  
+  .form-range::-moz-range-thumb {
+    background: #00bfa6;
+  }
+  
+  .form-range::-ms-thumb {
+    background: #00bfa6;
+  }
