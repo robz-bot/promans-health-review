@@ -1,0 +1,119 @@
+<section class="container">
+    <h3 class="text-center text-danger">Health Survey Questions for Health Assessment </h3>
+    <div class="row">
+      <!-- Question 1 -->
+      <div class="col-lg-4 col-sm-12 col-md-2 mt-3 d-flex align-items-stretch">
+        <div class="card">
+          <div class="card-header"> <p class="mb-0">
+              How healthy do you consider yourself on a scale of 1 to 10?
+            </p></div>
+          <div class="card-body">
+            <output class="badge bg-primary float-end" name="ageOutputName" id="healthyOutputId">1</output>
+            <input
+              type="range"
+              class="form-range"
+              min="1"
+              max="10"
+              step="1"
+              value="1"
+              id="healthyInputId"
+              oninput="healthyOutputId.value = healthyInputId.value"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Question 2 -->
+      <div class="col-lg-4 col-sm-12 col-md-2 mt-3 ">
+        <div class="card">
+          <div class="card-header">  <p class="mb-0">
+              How often do you get a health checkup?
+            </p></div>
+          <div class="card-body">
+            <select class="form-select form-select-sm my-4" aria-label="Default select example">
+              <option selected>Select</option>
+              <option value="Once in 3 months">Once in 3 months</option>
+              <option value="Once in 6 months">Once in 6 months</option>
+              <option value="Once a year">Once a year</option>
+              <option value="Only when needed">Only when needed</option>
+              <option value="Never get it done">Never get it done</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- Question 3 -->
+      <div class="col-lg-4 col-sm-12 col-md-2 mt-3 d-flex align-items-stretch">
+        <div class="card">
+          <div class="card-header"><p class="mb-0">
+              What do you say about your overall health?
+            </p></div>
+          <div class="card-body">
+            
+            <select class="form-select form-select-sm my-2" aria-label="Default select example">
+              <option selected>Select</option>
+              <option value="Having Good Physical Health">Having Good Physical Health</option>
+              <option value="Moderately physically impaired">Moderately physically impaired</option>
+              <option value="Severely physically impaired">Severely physically impaired</option>
+              <option value="Only when needed">Only when needed</option>
+              <option value="Totally physically impaired">Totally physically impaired</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- Questions 4 -->
+      <div class="col-lg-4 col-sm-12 col-md-2 mt-3 ">
+        <div class="card">
+          <div class="card-header"><p class="mb-0">
+              Do you have any chronic diseases?
+            </p></div>
+          <div class="card-body my-4">
+              <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions"  value="Yes">
+                  <label class="form-check-label" >Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" checked value="No">
+                  <label class="form-check-label">No</label>
+                </div>
+          </div>
+        </div>
+      </div>
+      <!-- Questions 5 -->
+      <div class="col-lg-4 col-sm-12 col-md-2 mt-3 ">
+        <div class="card">
+          <div class="card-header"> <p class="mb-0">
+              Do you have any hereditary conditions/diseases?
+            </p></div>
+          <div class="card-body">
+           
+            <select class="form-select form-select-sm my-2" aria-label="Default select example">
+              <option selected>Select</option>
+              <option value="High blood pressure">High blood pressure</option>
+              <option value="Diabetes">Diabetes</option>
+              <option value="Hemophilia">Hemophilia</option>
+              <option value="Thalassemia">Thalassemia</option>
+              <option value="Huntington">Huntington</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- Questions 6 -->
+      <div class="col-lg-4 col-sm-12 col-md-2 mt-3 ">
+        <div class="card">
+          <div class="card-header"> <p class="mb-0">
+              Are you habitual to drugs and alcohol?
+            </p></div>
+          <div class="card-body my-2">
+            <select class="form-select form-select-sm my-3" aria-label="Default select example">
+              <option selected>Select</option>
+              <option value="Yes to both">Yes to both</option>
+              <option value="Only to drugs">Only to drugs</option>
+              <option value="Only to alcohol">Only to alcohol</option>
+              <option value="I am not habituated to either">I am not habituated to either</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
