@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { survey } from "./survey";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-
+import {questions} from "src/app/questions"
 @Component({
   selector: "app-survey",
   templateUrl: "./survey.component.html",
@@ -11,6 +11,8 @@ export class SurveyComponent implements OnInit {
   constructor() {}
   surveyForm!: FormGroup;
   surveyValue: survey = new survey();
+
+  questionList:any
   ngOnInit(): void {
     this.surveyForm = new FormGroup({
       qn1: new FormControl("1", [Validators.required]),
@@ -34,6 +36,12 @@ export class SurveyComponent implements OnInit {
       qn19: new FormControl("1st & 2nd Dose", [Validators.required]),
       qn20: new FormControl("", [Validators.required]),
     });
+    this.loadQuestions()
+  }
+
+  loadQuestions(){
+this.questionList=questions
+console.log(this.questionList)
   }
 
   onSubmit() {

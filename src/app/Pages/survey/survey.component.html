@@ -1,15 +1,34 @@
-<h3 class="text-center text-dark bg-success1" style="height: 50px">
-  Health Survey Questions <i class="bi bi-activity"></i>
-</h3>
 <section class="container">
-  
-  <div class="row">
+<div class="row">
+    <div class="col-lg-4 d-flex justify-content-center">
+      <img
+        class="mt-1"
+        src="assets/img/promantus-logo.png"
+        style="height: 50px; width: 200px"
+      />
+    </div>
+    <div class="col-lg-8">
+      <h3 class="text-center text-dark bg-success1" style="height: 50px">
+        Health Survey Questions <i class="bi bi-activity"></i>
+      </h3>
+    </div>
+</div>
+
+<div class="row">
     <div class="col-lg-4 d-none d-lg-block">
       <div class="d-flex flex-column bd-highlight mb-3">
-        <div class="p-2 bd-highlight"><img src="assets/img/img1.png" style="height:400px;width:350px"></div>
-        <div class="p-2 bd-highlight"><img src="assets/img/img3.png" style="height:400px;width:350px"></div>
-        <div class="p-2 bd-highlight"><img src="assets/img/img2.png" style="height:400px;width:350px"></div>
-        <div class="p-2 bd-highlight"><img src="assets/img/img4.png" style="height:400px;width:350px"></div>
+        <div class="p-2 bd-highlight">
+          <img src="assets/img/img1.png" style="height: 400px; width: 350px" />
+        </div>
+        <div class="p-2 bd-highlight">
+          <img src="assets/img/img3.png" style="height: 400px; width: 350px" />
+        </div>
+        <div class="p-2 bd-highlight">
+          <img src="assets/img/img2.png" style="height: 400px; width: 350px" />
+        </div>
+        <div class="p-2 bd-highlight">
+          <img src="assets/img/img4.png" style="height: 400px; width: 350px" />
+        </div>
       </div>
     </div>
     <div class="col-lg-8">
@@ -21,7 +40,7 @@
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
                   <p>
-                    How healthy do you consider yourself on a scale of 1 to 10?
+                    {{ questionList[0] }}
                   </p>
                 </div>
               </div>
@@ -38,7 +57,7 @@
                   formControlName="qn1"
                   name="qn1"
                 /><output
-                  class="badge bg-success1 rounded-pill mx-3  mt-0 h-50 fs-0 "
+                  class="badge bg-success1 rounded-pill mx-3 mt-0 h-50 fs-0"
                   name="ageOutputName"
                   id="healthyOutputId"
                   ><span class="my-2 fw-bold">1</span></output
@@ -51,7 +70,7 @@
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>How often do you get a health checkup?</p>
+                  <p>{{ questionList[1] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -61,7 +80,7 @@
                   formControlName="qn2"
                   name="qn2"
                 >
-                <option value="">Select</option>
+                  <option value="">Select</option>
                   <option value="Once in 3 months">Once in 3 months</option>
                   <option value="Once in 6 months">Once in 6 months</option>
                   <option value="Once a year">Once a year</option>
@@ -76,7 +95,7 @@
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>What do you say about your overall health?</p>
+                  <p>{{ questionList[2] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -85,7 +104,8 @@
                   aria-label="Default select example"
                   formControlName="qn3"
                   name="qn3"
-                ><option value="">Select</option>
+                >
+                  <option value="">Select</option>
                   <option value="Having Good Physical Health">
                     Having Good Physical Health
                   </option>
@@ -108,7 +128,7 @@
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>Do you have any chronic diseases?</p>
+                  <p>{{ questionList[3] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -141,7 +161,7 @@
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>Do you have any hereditary conditions/diseases?</p>
+                  <p>{{ questionList[4] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -150,7 +170,8 @@
                   aria-label="Default select example"
                   formControlName="qn5"
                   name="qn5"
-                ><option value="">Select</option>
+                >
+                  <option value="">Select</option>
                   <option value="None">None</option>
                   <option value="High blood pressure">
                     High blood pressure
@@ -168,7 +189,7 @@
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>Are you habitual to drugs and alcohol?</p>
+                  <p>{{ questionList[5] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -177,7 +198,8 @@
                   aria-label="Default select example"
                   formControlName="qn6"
                   name="qn6"
-                ><option value="">Select</option>
+                >
+                  <option value="">Select</option>
                   <option value="I am not habituated to either">
                     I am not habituated to either
                   </option>
@@ -193,10 +215,7 @@
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>
-                    Over the past 2 weeks, how often have you felt nervous,
-                    anxious, or on edge?
-                  </p>
+                  <p>{{ questionList[6] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -205,7 +224,8 @@
                   aria-label="Default select example"
                   formControlName="qn7"
                   name="qn7"
-                ><option value="">Select</option>
+                >
+                  <option value="">Select</option>
                   <option value="Not all">Not all</option>
                   <option value="Several days">Several days</option>
                   <option value="More days than not">More days than not</option>
@@ -219,10 +239,7 @@
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>
-                    Over the past 2 weeks, how often have you felt down,
-                    depressed, or hopeless?
-                  </p>
+                  <p>{{ questionList[7] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -231,7 +248,8 @@
                   aria-label="Default select example"
                   formControlName="qn8"
                   name="qn8"
-                ><option value="">Select</option>
+                >
+                  <option value="">Select</option>
                   <option value="Not all">Not all</option>
                   <option value="Several days">Several days</option>
                   <option value="More days than not">More days than not</option>
@@ -245,10 +263,7 @@
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>
-                    Over the past 2 weeks, how often have you felt little
-                    interest or pleasure in doing things?
-                  </p>
+                  <p>{{ questionList[8] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -257,7 +272,8 @@
                   aria-label="Default select example"
                   formControlName="qn9"
                   name="qn9"
-                ><option value="">Select</option>
+                >
+                  <option value="">Select</option>
                   <option value="Not all">Not all</option>
                   <option value="Several days">Several days</option>
                   <option value="More days than not">More days than not</option>
@@ -271,10 +287,7 @@
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>
-                    How would you describe the condition of your mouth and
-                    teeth, including false teeth or dentures?
-                  </p>
+                  <p>{{ questionList[9] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -283,7 +296,8 @@
                   aria-label="Default select example"
                   formControlName="qn10"
                   name="qn10"
-                ><option value="">Select</option>
+                >
+                  <option value="">Select</option>
                   <option value="Excellent">Excellent</option>
                   <option value="Good">Good</option>
                   <option value="Average">Average</option>
@@ -297,10 +311,7 @@
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>
-                    How often do you have trouble taking medicines the way you
-                    have been told to take them?
-                  </p>
+                  <p>{{ questionList[10] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -309,7 +320,8 @@
                   aria-label="Default select example"
                   formControlName="qn11"
                   name="qn11"
-                ><option value="">Select</option>
+                >
+                  <option value="">Select</option>
                   <option value="I do not have to take medicine">
                     I do not have to take medicine
                   </option>
@@ -331,10 +343,7 @@
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>
-                    On how many of the last 7 days did you engage in moderate to
-                    strenuous exercise (like a brisk walk)?
-                  </p>
+                  <p>{{ questionList[11] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -343,7 +352,8 @@
                   aria-label="Default select example"
                   formControlName="qn12"
                   name="qn12"
-                ><option value="">Select</option>
+                >
+                  <option value="">Select</option>
                   <option value="0 Day">0 Day</option>
                   <option value="1 Day">1 Day</option>
                   <option value="2 Days">2 Days</option>
@@ -356,14 +366,12 @@
               </div>
             </div>
           </li>
-           <!-- Question 13 -->
-           <li class="list-group-item d-flex">
+          <!-- Question 13 -->
+          <li class="list-group-item d-flex">
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>
-                    Have you invested in good health insurance?
-                  </p>
+                  <p>{{ questionList[12] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -391,14 +399,12 @@
               </div>
             </div>
           </li>
-           <!-- Question 14 -->
-           <li class="list-group-item d-flex">
+          <!-- Question 14 -->
+          <li class="list-group-item d-flex">
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>
-                    Did you exposed to COVID-19?
-                  </p>
+                  <p>{{ questionList[13] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -426,42 +432,38 @@
               </div>
             </div>
           </li>
-           <!-- Question 15 -->
-           <li class="list-group-item d-flex">
+          <!-- Question 15 -->
+          <li class="list-group-item d-flex">
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>
-                    How many days did it take you to fully recover if you were exposed to COVID-19?
-                  </p>
+                  <p>{{ questionList[14] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <select
-                class="form-select form-select-sm"
-                aria-label="Default select example"
-                formControlName="qn15"
-                name="qn15"
-              >
-              <option value="">Select</option>
-                <option value="Not Applicable">Not Applicable</option>
-                <option value="1-3 days">1-3 days</option>
-                <option value="3-6 days">3-6 days</option>
-                <option value="6-9 days">6-9 days</option>
-                <option value="9-12 days">9-12 days</option>
-                <option value="13-15 days">13-15 days</option>
-              </select>
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  formControlName="qn15"
+                  name="qn15"
+                >
+                  <option value="">Select</option>
+                  <option value="Not Applicable">Not Applicable</option>
+                  <option value="1-3 days">1-3 days</option>
+                  <option value="3-6 days">3-6 days</option>
+                  <option value="6-9 days">6-9 days</option>
+                  <option value="9-12 days">9-12 days</option>
+                  <option value="13-15 days">13-15 days</option>
+                </select>
               </div>
             </div>
           </li>
-           <!-- Question 16 -->
-           <li class="list-group-item d-flex">
+          <!-- Question 16 -->
+          <li class="list-group-item d-flex">
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>
-                    Do you have any allergies to things like smoking, dust, etc.?
-                  </p>
+                  <p>{{ questionList[15] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -489,14 +491,12 @@
               </div>
             </div>
           </li>
-           <!-- Question 17 -->
-           <li class="list-group-item d-flex">
+          <!-- Question 17 -->
+          <li class="list-group-item d-flex">
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>
-                    Are you under work-related stress that is affecting your personal life?
-                  </p>
+                  <p>{{ questionList[16] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -524,28 +524,26 @@
               </div>
             </div>
           </li>
-           <!-- Question 18 -->
-           <li class="list-group-item d-flex">
+          <!-- Question 18 -->
+          <li class="list-group-item d-flex">
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>
-                    When did you most recently become ill or apply for a leave of absence?
-                  </p>
+                  <p>{{ questionList[17] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <select
-                class="form-select form-select-sm"
-                aria-label="Default select example"
-                formControlName="qn18"
-                name="qn18"
-              >
-              <option value="">Select</option>
-                <option value="1 week before">1 week before</option>
-                <option value="2 weeks before">2 weeks before</option>
-                <option value="3 weeks before">3 weeks before</option>
-              </select>
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  formControlName="qn18"
+                  name="qn18"
+                >
+                  <option value="">Select</option>
+                  <option value="1 week before">1 week before</option>
+                  <option value="2 weeks before">2 weeks before</option>
+                  <option value="3 weeks before">3 weeks before</option>
+                </select>
               </div>
             </div>
           </li>
@@ -554,9 +552,7 @@
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>
-                    How many doses of the COVID vaccine you received?
-                  </p>
+                  <p>{{ questionList[18] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
@@ -585,7 +581,7 @@
                   <input
                     class="form-check-input"
                     type="radio"
-                    name="qn17"
+                    name="qn19"
                     value="Others"
                     formControlName="qn19"
                   />
@@ -599,13 +595,17 @@
             <div class="row w-100">
               <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="mx-2 fw-bold">
-                  <p>
-                    Please share your ideas for enhancing employee wellness at our company.
-                  </p>
+                  <p>{{ questionList[19] }}</p>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12 col-md-12">
-               <textarea name="qn20" formControlName="qn20"  cols="30" rows="2" class="form-control form-control-sm"></textarea>
+                <textarea
+                  name="qn20"
+                  formControlName="qn20"
+                  cols="30"
+                  rows="2"
+                  class="form-control form-control-sm"
+                ></textarea>
               </div>
             </div>
           </li>
@@ -613,13 +613,14 @@
         <fieldset class="text-center">
           <button
             type="submit"
-            class="btn btn-md btn-success1 my-2 btn-center"
+            class="btn btn-md btn-success1 bg-success1 my-2 btn-center"
             [disabled]="!surveyForm.valid"
           >
             Submit
           </button>
+          <br />
         </fieldset>
       </form>
     </div>
-  </div>
+</div>
 </section>

@@ -8,19 +8,35 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { SurveyComponent } from './Pages/survey/survey.component';
 import { SurveySuccessComponent } from './Pages/survey-success/survey-success.component';
+import { AdminLoginComponent } from './Pages/admin-login/admin-login.component';
+import { AdminDashboardComponent } from './Pages/admin-dashboard/admin-dashboard.component';
+import { AdminHeaderComponent } from './Pages/admin-header/admin-header.component';
+import { HttpClientModule } from "@angular/common/http";
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { StackedBarChartComponent } from './Pages/Charts/stacked-bar-chart/stacked-bar-chart.component';
+import { UserSurveyListComponent } from './Pages/user-survey-list/user-survey-list.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { UserSurveyComponent } from './Pages/user-survey/user-survey.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SurveyComponent,
-    SurveySuccessComponent
+    SurveySuccessComponent,
+    AdminLoginComponent,
+    AdminDashboardComponent,
+    AdminHeaderComponent,
+    StackedBarChartComponent,
+    UserSurveyListComponent,
+    UserSurveyComponent,
   ],
   imports: [
     BrowserModule,
     CommonModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,NgApexchartsModule,  BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

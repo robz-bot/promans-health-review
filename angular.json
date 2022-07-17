@@ -27,10 +27,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css","src/assets/css/bootstrap.min.css"
-              ,"src/assets/css/tachyons-animate.min.css"
+              "src/styles.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/tachyons-animate.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js"
+            ]
           },
           "configurations": {
             "production": {
