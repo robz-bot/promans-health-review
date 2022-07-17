@@ -15,7 +15,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { StackedBarChartComponent } from './Pages/Charts/stacked-bar-chart/stacked-bar-chart.component';
 import { UserSurveyListComponent } from './Pages/user-survey-list/user-survey-list.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UserSurveyComponent } from './Pages/user-survey/user-survey.component';
 
 @NgModule({
@@ -36,7 +35,7 @@ import { UserSurveyComponent } from './Pages/user-survey/user-survey.component';
     CommonModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,NgApexchartsModule,  BrowserAnimationsModule
+    HttpClientModule,NgApexchartsModule,  
   ],
   providers: [],
   bootstrap: [AppComponent]
