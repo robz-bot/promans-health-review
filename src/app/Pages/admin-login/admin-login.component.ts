@@ -23,6 +23,7 @@ export class AdminLoginComponent implements OnInit {
   }
   resData: any;
   onSubmit() {
+    console.log(this.loginForm.value)
     if (
       this.loginForm.value.email == "admin@promantus.com" &&
       this.loginForm.value.password == "admin"
