@@ -1,18 +1,24 @@
 import { Component, OnInit } from "@angular/core";
 import { survey } from "./survey";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import {questions} from "src/app/questions"
+import { questions } from "src/app/questions";
+import { Router } from "@angular/router";
+import { calcHealthService } from "src/app/CalcHealth.service";
 @Component({
   selector: "app-survey",
   templateUrl: "./survey.component.html",
   styleUrls: ["./survey.component.css"],
 })
 export class SurveyComponent implements OnInit {
-  constructor() {}
+  SS_Name: any = "";
+  SS_EmpCode: any = "";
+  SS_Company: any = "";
+  SS_Manager: any = "";
+  constructor(private route: Router,private calc:calcHealthService) {}
   surveyForm!: FormGroup;
   surveyValue: survey = new survey();
 
-  questionList:any
+  questionList: any;
   ngOnInit(): void {
     this.surveyForm = new FormGroup({
       qn1: new FormControl("1", [Validators.required]),
@@ -36,16 +42,47 @@ export class SurveyComponent implements OnInit {
       qn19: new FormControl("1st & 2nd Dose", [Validators.required]),
       qn20: new FormControl("", [Validators.required]),
     });
-    this.loadQuestions()
+    this.validateSession();
+    this.loadQuestions();
   }
 
-  loadQuestions(){
-this.questionList=questions
-console.log(this.questionList)
+  validateSession() {
+    this.SS_Name = sessionStorage.getItem("name");
+    this.SS_EmpCode = sessionStorage.getItem("empcode");
+    this.SS_Company = sessionStorage.getItem("company");
+    this.SS_Manager = sessionStorage.getItem("manager");
+
+    this.checkNullableSession(
+      this.SS_Name,
+      this.SS_EmpCode,
+      this.SS_Company,
+      this.SS_Manager
+    );
+  }
+  checkNullableSession(
+    SS_Name: string,
+    SS_EmpCode: string,
+    SS_Company: string,
+    SS_Manager: string
+  ) {
+    if (!SS_Name && !SS_EmpCode && !SS_Company && !SS_Manager) {
+      this.route.navigateByUrl("/");
+    }
   }
 
+  loadQuestions() {
+    this.questionList = questions;
+    console.log(this.questionList);
+  }
+
+  res:any
   onSubmit() {
     this.surveyValue = this.surveyForm.value;
+    this.res = this.calc.calculation(this.surveyValue)
+    console.log("result: "+this.res)
     console.log(this.surveyValue);
+    sessionStorage.clear()
+    this.route.navigateByUrl("/survey-success");
+    sessionStorage.setItem("survey-result", this.res);
   }
 }
