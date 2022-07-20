@@ -1,7 +1,8 @@
 export const questions: string[] = [
   "How healthy do you consider yourself on a scale of 1 to 10?",
   "How often do you get a health checkup?",
-  "What do you say about your overall health?","Do you have any chronic diseases?",
+  "What do you say about your overall health?",
+  "Do you have any chronic diseases?",
   "Do you have any hereditary conditions/diseases?",
   "Are you habitual to drugs and alcohol?",
   "Over the past 2 weeks, how often have you felt nervous,anxious, or on edge?",

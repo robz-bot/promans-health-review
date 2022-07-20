@@ -11,4 +11,12 @@ export class survey{
     "qn10":string;
     "qn11":string;
     "qn12":string;
+  "qn13": string;
+  "qn14": string;
+  "qn15": string;
+  "qn16": string;
+  "qn17": string;
+  "qn18": string;
+  "qn19": string;
+  "qn20": string;
 }

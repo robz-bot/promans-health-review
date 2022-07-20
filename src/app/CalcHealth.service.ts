@@ -22,6 +22,14 @@ export class calcHealthService {
     this.qn9Result(surveyValue);
     this.qn10Result(surveyValue);
     this.qn11Result(surveyValue);
+    this.qn12Result(surveyValue);
+    this.qn13Result(surveyValue);
+    this.qn14Result(surveyValue);
+    this.qn15Result(surveyValue);
+    this.qn16Result(surveyValue);
+    this.qn17Result(surveyValue);
+    this.qn18Result(surveyValue);
+    this.qn19Result(surveyValue);
 
     this.result = this.mark.reduce((accumulator, current) => {
       return accumulator + current;
@@ -29,16 +37,94 @@ export class calcHealthService {
 
     return this.result;
   }
+  qn19Result(surveyValue: survey) {
+    if (surveyValue.qn18 == "1st Dose") {
+      this.mark.push(30);
+    } else if (surveyValue.qn18 == "1st & 2nd Dose") {
+      this.mark.push(70);
+    } else if (surveyValue.qn18 == "Others") {
+      this.mark.push(100);
+    }
+  }
+  qn18Result(surveyValue: survey) {
+    if (surveyValue.qn18 == "1 week before") {
+      this.mark.push(80);
+    } else if (surveyValue.qn18 == "2 weeks before") {
+      this.mark.push(50);
+    } else if (surveyValue.qn18 == "3 weeks before") {
+      this.mark.push(20);
+    }
+  }
+  qn17Result(surveyValue: survey) {
+    if (surveyValue.qn17 == "Yes") {
+      this.mark.push(10);
+    } else {
+      this.mark.push(100);
+    }
+  }
+  qn16Result(surveyValue: survey) {
+    if (surveyValue.qn16 == "Yes") {
+      this.mark.push(10);
+    } else {
+      this.mark.push(100);
+    }
+  }
+  qn15Result(surveyValue: survey) {
+    if (surveyValue.qn15 == "Not Applicable") {
+      this.mark.push(100);
+    } else if (surveyValue.qn15 == "1-3 days") {
+      this.mark.push(80);
+    } else if (surveyValue.qn15 == "3-6 days") {
+      this.mark.push(60);
+    } else if (surveyValue.qn15 == "6-9 days") {
+      this.mark.push(40);
+    } else if (surveyValue.qn15 == "9-12 days") {
+      this.mark.push(20);
+    } else if (surveyValue.qn15 == "13-15 days") {
+      this.mark.push(10);
+    }
+  }
+  qn14Result(surveyValue: survey) {
+    if (surveyValue.qn14 == "Yes") {
+      this.mark.push(100);
+    } else {
+      this.mark.push(10);
+    }
+  }
+  qn13Result(surveyValue: survey) {
+    if (surveyValue.qn13 == "Yes") {
+      this.mark.push(10);
+    } else {
+      this.mark.push(100);
+    }
+  }
+  qn12Result(surveyValue: survey) {
+    if (surveyValue.qn11 == "0 Day") {
+      this.mark.push(15);
+    } else if (surveyValue.qn12 == "1 Day") {
+      this.mark.push(25);
+    } else if (surveyValue.qn12 == "2 Days") {
+      this.mark.push(35);
+    } else if (surveyValue.qn12 == "3 Days") {
+      this.mark.push(45);
+    } else if (surveyValue.qn12 == "4 Days") {
+      this.mark.push(55);
+    } else if (surveyValue.qn12 == "5 Days") {
+      this.mark.push(75);
+    } else if (surveyValue.qn12 == "6 Days") {
+      this.mark.push(85);
+    } else if (surveyValue.qn12 == "7 Days") {
+      this.mark.push(100);
+    }
+  }
   qn11Result(surveyValue: survey) {
     if (surveyValue.qn11 == "I do not have to take medicine") {
       this.mark.push(100);
-    } else if (surveyValue.qn9 == "I always take them as prescribed") {
+    } else if (surveyValue.qn11 == "I always take them as prescribed") {
       this.mark.push(70);
-    
-    } else if (surveyValue.qn9 == "Sometimes I take them as prescribed") {
+    } else if (surveyValue.qn11 == "Sometimes I take them as prescribed") {
       this.mark.push(30);
-    
-    } else if (surveyValue.qn9 == "I seldom take them as prescribed") {
+    } else if (surveyValue.qn11 == "I seldom take them as prescribed") {
       this.mark.push(10);
     }
   }
@@ -47,10 +133,8 @@ export class calcHealthService {
       this.mark.push(100);
     } else if (surveyValue.qn10 == "Good") {
       this.mark.push(70);
-    
     } else if (surveyValue.qn10 == "Average") {
       this.mark.push(40);
-    
     } else if (surveyValue.qn10 == "Poor") {
       this.mark.push(10);
     }
@@ -60,10 +144,8 @@ export class calcHealthService {
       this.mark.push(100);
     } else if (surveyValue.qn9 == "Several days") {
       this.mark.push(70);
-    
     } else if (surveyValue.qn9 == "More days than not") {
       this.mark.push(50);
-    
     } else if (surveyValue.qn9 == "Nearly every day") {
       this.mark.push(10);
     }
@@ -73,10 +155,8 @@ export class calcHealthService {
       this.mark.push(100);
     } else if (surveyValue.qn8 == "Several days") {
       this.mark.push(70);
-    
     } else if (surveyValue.qn8 == "More days than not") {
       this.mark.push(50);
-    
     } else if (surveyValue.qn8 == "Nearly every day") {
       this.mark.push(10);
     }
@@ -86,10 +166,8 @@ export class calcHealthService {
       this.mark.push(100);
     } else if (surveyValue.qn7 == "Several days") {
       this.mark.push(70);
-    
     } else if (surveyValue.qn7 == "More days than not") {
       this.mark.push(50);
-    
     } else if (surveyValue.qn7 == "Nearly every day") {
       this.mark.push(10);
     }
@@ -99,10 +177,8 @@ export class calcHealthService {
       this.mark.push(100);
     } else if (surveyValue.qn6 == "Yes to both") {
       this.mark.push(0);
-    
     } else if (surveyValue.qn6 == "Only to drugs") {
       this.mark.push(50);
-    
     } else if (surveyValue.qn6 == "Only to alcohol") {
       this.mark.push(50);
     }
