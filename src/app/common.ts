@@ -1,6 +1,6 @@
 export class baseUrl {
-  public static BASE_URL: string = "http://localhost:8080/api/v1/";
-  //  public static BASE_URL: string = "https://qf-app.herokuapp.com/";
+  // public static BASE_URL: string = "http://localhost:8080/api/v1/";
+    public static BASE_URL: string = "https://healthreview.herokuapp.com/";
 }
 
 export class apiKey {
