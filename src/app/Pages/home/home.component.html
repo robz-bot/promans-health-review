@@ -11,15 +11,17 @@
       </div>
     </div>
     <div class="col-lg-5">
-      <div class="container mt-4 bg-light" style="border: 2px solid white;
-      border-radius: 30px;">
+      <div
+        class="container mt-4 bg-light"
+        style="border: 2px solid white; border-radius: 30px"
+      >
         <h4 class="text-dark text-center mt-3">
           Promantus Health Review <i class="bi bi-heart-pulse-fill"></i>
         </h4>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <fieldset>
             <div class="form-group">
-              <label class="form-label mt-2 ">Name</label>
+              <label class="form-label mt-2">Name</label>
               <input
                 type="text"
                 class="form-control form-control-sm"
@@ -45,24 +47,24 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="form-label mt-4 ">Employee Code</label>
+              <label class="form-label mt-4">Employee Code</label>
               <input
                 type="text"
                 class="form-control form-control-sm"
                 placeholder="Employee Code"
-                formControlName="employeeCode"
+                formControlName="empCode"
               />
 
               <div
                 *ngIf="
-                  !registerForm.controls['employeeCode'].valid &&
-                  (registerForm.controls['employeeCode'].dirty ||
-                    registerForm.controls['employeeCode'].touched)
+                  !registerForm.controls['empCode'].valid &&
+                  (registerForm.controls['empCode'].dirty ||
+                    registerForm.controls['empCode'].touched)
                 "
                 class="bg-danger"
               >
                 <div
-                  [hidden]="!registerForm.controls['employeeCode'].errors?.['required']"
+                  [hidden]="!registerForm.controls['empCode'].errors?.['required']"
                 >
                   <small class="text-light mx-2"
                     >Employee Code is required</small
@@ -71,9 +73,17 @@
                   ></i>
                 </div>
               </div>
+              <div *ngIf="!isEmpCodeValid" class="bg-danger">
+                <small class="text-light mx-2">
+                  Special Characters not allowed</small
+                >
+                <i
+                  class="bi bi-exclamation-triangle float-end mx-2 text-light"
+                ></i>
+              </div>
             </div>
             <div class="form-group">
-              <label class="form-label mt-4 ">Company</label>
+              <label class="form-label mt-4">Company</label>
               <input
                 type="text"
                 class="form-control form-control-sm"
@@ -100,7 +110,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="form-label mt-4 ">Manager</label>
+              <label class="form-label mt-4">Manager</label>
               <input
                 type="text"
                 class="form-control form-control-sm"
@@ -134,7 +144,7 @@
               class="btn btn-dark btn-md mt-0 text-center"
               [disabled]="!registerForm.valid"
             >
-              Start Survey
+               {{submitBtnValue}}
             </button>
           </fieldset>
         </form>
@@ -147,4 +157,4 @@
     </div>
   </div>
 </div>
-
+<app-loader></app-loader>

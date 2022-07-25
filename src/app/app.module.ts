@@ -16,6 +16,7 @@ import { NgApexchartsModule } from "ng-apexcharts";
 import { StackedBarChartComponent } from "./Pages/Charts/stacked-bar-chart/stacked-bar-chart.component";
 import { UserSurveyListComponent } from "./Pages/user-survey-list/user-survey-list.component";
 import { UserSurveyComponent } from "./Pages/user-survey/user-survey.component";
+import { LoaderComponent } from './Pages/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UserSurveyComponent } from "./Pages/user-survey/user-survey.component";
     StackedBarChartComponent,
     UserSurveyListComponent,
     UserSurveyComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

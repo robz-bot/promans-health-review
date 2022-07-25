@@ -1,138 +1,137 @@
 <app-admin-header></app-admin-header>
 <div class="container">
   <div class="card">
-  <div class="card-header">
-    <div class="row">
-        <div class="col-3">
-            <h5 class="fw-bold">Name</h5>
-            <p>Robin</p>
+    <div class="card-header">
+      <div class="row">
+        <div class="col-lg-3 col-sm-12 col-md-6">
+          <h5 class="fw-bold">Name</h5>
+          <p>{{ surveyResData.name }}</p>
         </div>
-        <div class="col-3">
-            <h5 class="fw-bold">Employee Code</h5>
-            <p>TC5-156</p>
+        <div class="col-lg-3 col-sm-12 col-md-6">
+          <h5 class="fw-bold">Employee Code</h5>
+          <p>{{ surveyResData.empCode }}</p>
         </div>
-        <div class="col-3">
-            <h5 class="fw-bold">Company</h5>
-            <p>Promantus Inc.</p>
+        <div class="col-lg-3 col-sm-12 col-md-6">
+          <h5 class="fw-bold">Company</h5>
+          <p>{{ surveyResData.company }}</p>
         </div>
-        <div class="col-3">
-            <h5 class="fw-bold">Manager</h5>
-            <p>Kamal </p>
+        <div class="col-lg-3 col-sm-12 col-md-6">
+          <h5 class="fw-bold">Manager</h5>
+          <p>{{ surveyResData.manager }}</p>
         </div>
+      </div>
     </div>
-  </div>
-  <div class="card-body">
-    <table class="table table-sm">
+    <div class="card-body">
+      <table class="table table-sm">
         <thead>
-            <tr>
-              <th scope="col">Sl No.</th>
-              <th scope="col">Survey Question</th>
-              <th scope="col">Answer</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>{{questionList[0]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>{{questionList[1]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>{{questionList[2]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>{{questionList[3]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>{{questionList[4]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">6</th>
-              <td>{{questionList[5]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">7</th>
-              <td>{{questionList[6]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">8</th>
-              <td>{{questionList[7]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">9</th>
-              <td>{{questionList[8]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">10</th>
-              <td>{{questionList[9]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">11</th>
-              <td>{{questionList[10]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">12</th>
-              <td>{{questionList[11]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">13</th>
-              <td>{{questionList[12]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">14</th>
-              <td>{{questionList[13]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">15</th>
-              <td>{{questionList[14]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">16</th>
-              <td>{{questionList[15]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">17</th>
-              <td>{{questionList[16]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">18</th>
-              <td>{{questionList[17]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">19</th>
-              <td>{{questionList[18]}}</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th scope="row">20</th>
-              <td>{{questionList[19]}}</td>
-              <td>1</td>
-            </tr>
-          
-          </tbody>
+          <tr>
+            <th scope="col">Sl No.</th>
+            <th scope="col" class="w-50">Survey Question</th>
+            <th scope="col">Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>{{ questionList[0] }}</td>
+            <td>{{ surveyResData.qn1 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>{{ questionList[1] }}</td>
+            <td>{{ surveyResData.qn2 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>{{ questionList[2] }}</td>
+            <td>{{ surveyResData.qn3 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>{{ questionList[3] }}</td>
+            <td>{{ surveyResData.qn4 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>{{ questionList[4] }}</td>
+            <td>{{ surveyResData.qn5 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>{{ questionList[5] }}</td>
+            <td>{{ surveyResData.qn6 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td>{{ questionList[6] }}</td>
+            <td>{{ surveyResData.qn7 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">8</th>
+            <td>{{ questionList[7] }}</td>
+            <td>{{ surveyResData.qn8 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">9</th>
+            <td>{{ questionList[8] }}</td>
+            <td>{{ surveyResData.qn9 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">10</th>
+            <td>{{ questionList[9] }}</td>
+            <td>{{ surveyResData.qn10 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">11</th>
+            <td>{{ questionList[10] }}</td>
+            <td>{{ surveyResData.qn11 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">12</th>
+            <td>{{ questionList[11] }}</td>
+            <td>{{ surveyResData.qn12 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">13</th>
+            <td>{{ questionList[12] }}</td>
+            <td>{{ surveyResData.qn13 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">14</th>
+            <td>{{ questionList[13] }}</td>
+            <td>{{ surveyResData.qn14 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">15</th>
+            <td>{{ questionList[14] }}</td>
+            <td>{{ surveyResData.qn15 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">16</th>
+            <td>{{ questionList[15] }}</td>
+            <td>{{ surveyResData.qn16 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">17</th>
+            <td>{{ questionList[16] }}</td>
+            <td>{{ surveyResData.qn17 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">18</th>
+            <td>{{ questionList[17] }}</td>
+            <td>{{ surveyResData.qn18 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">19</th>
+            <td>{{ questionList[18] }}</td>
+            <td>{{ surveyResData.qn19 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">20</th>
+            <td>{{ questionList[19] }}</td>
+            <td>{{ surveyResData.qn20 }}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>

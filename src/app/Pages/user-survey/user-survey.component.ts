@@ -1,24 +1,47 @@
-import { Component, OnInit } from '@angular/core';
-import { questions } from 'src/app/questions';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { questions } from "src/app/questions";
+import { SurveyServiceService } from "../survey/survey-service.service";
 
 @Component({
-  selector: 'app-user-survey',
-  templateUrl: './user-survey.component.html',
-  styleUrls: ['./user-survey.component.css']
+  selector: "app-user-survey",
+  templateUrl: "./user-survey.component.html",
+  styleUrls: ["./user-survey.component.css"],
 })
 export class UserSurveyComponent implements OnInit {
-
-  constructor() { }
-
+  paramEmpCode: string = "";
+  paramYear: string = "";
+  paramMonth: string = "";
+  constructor(
+    private aroute: ActivatedRoute,
+    private surveyService: SurveyServiceService
+  ) {}
+  questionList: any;
   ngOnInit(): void {
-    this.loadQuestions()
+    this.loadQuestions();
+    this.paramEmpCode = this.aroute.snapshot.params["empcode"];
+    this.paramYear = this.aroute.snapshot.params["year"];
+    this.paramMonth = 
+    this.aroute.snapshot.queryParams["month"]
+
+    this.loadUserData();
   }
 
-  loadQuestions(){
-this.questionList=questions
-console.log(this.questionList)
+  surveyResData:any
+  loadUserData() {
+    this.surveyService
+      .getSurveyByEmpCodeYearAndMonth(
+        this.paramEmpCode,
+        this.paramYear,
+        this.paramMonth
+      )
+      .subscribe((data) => {
+        console.log(data);
+        this.surveyResData=data;
+      });
   }
 
-  questionList:any
-
+  loadQuestions() {
+    this.questionList = questions;
+  }
 }

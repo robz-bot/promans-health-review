@@ -4,6 +4,8 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { questions } from "src/app/questions";
 import { Router } from "@angular/router";
 import { calcHealthService } from "src/app/CalcHealth.service";
+import { DateUtils } from "src/app/common";
+import { SurveyServiceService } from "./survey-service.service";
 @Component({
   selector: "app-survey",
   templateUrl: "./survey.component.html",
@@ -14,7 +16,11 @@ export class SurveyComponent implements OnInit {
   SS_EmpCode: any = "";
   SS_Company: any = "";
   SS_Manager: any = "";
-  constructor(private route: Router,private calc:calcHealthService) {}
+  constructor(
+    private route: Router,
+    private calc: calcHealthService,
+    private surveyService: SurveyServiceService
+  ) {}
   surveyForm!: FormGroup;
   surveyValue: survey = new survey();
 
@@ -59,6 +65,7 @@ export class SurveyComponent implements OnInit {
       this.SS_Manager
     );
   }
+
   checkNullableSession(
     SS_Name: string,
     SS_EmpCode: string,
@@ -75,14 +82,41 @@ export class SurveyComponent implements OnInit {
     console.log(this.questionList);
   }
 
-  res:any
+  calcRes: number = 0;
+  resData: any;
+  submitBtnValue: string = "Submit";
   onSubmit() {
+    this.submitBtnValue = "Submitting your Survey";
     this.surveyValue = this.surveyForm.value;
-    this.res = this.calc.calculation(this.surveyValue)
-    console.log("result: "+this.res)
+    this.calcRes = this.calc.calculation(this.surveyValue);
+
+    this.surveyValue.empCode = this.SS_EmpCode.toUpperCase();
+    this.surveyValue.year = DateUtils.CURRENT_YEAR.toString();
+    this.surveyValue.month = DateUtils.CURRENT_MONTH.toString();
+
+    this.surveyValue.healthPercent = Math.round(
+      ((this.calcRes / 19) * 100) / 100
+    );
+    if (this.calcRes > 10 && this.calcRes < 30) {
+      this.surveyValue.healthStatus = "Poor";
+    } else if (this.calcRes >= 30 && this.calcRes < 50) {
+      this.surveyValue.healthStatus = "Average";
+    } else if (this.calcRes >= 50 && this.calcRes < 70) {
+      this.surveyValue.healthStatus = "Good";
+    } else if (this.calcRes >= 70 && this.calcRes < 100) {
+      this.surveyValue.healthStatus = "Excellent";
+    }
+
     console.log(this.surveyValue);
-    sessionStorage.clear()
-    this.route.navigateByUrl("/survey-success");
-    sessionStorage.setItem("survey-result", this.res);
+    this.surveyService.newUser(this.surveyValue).subscribe((data) => {
+      this.resData = data;
+      if (this.resData.status == 0) {
+        sessionStorage.clear();
+        this.route.navigateByUrl("/survey-success");
+        sessionStorage.setItem("survey-result", this.calcRes.toString());
+      } else {
+        this.submitBtnValue = "Submit";
+      }
+    });
   }
 }

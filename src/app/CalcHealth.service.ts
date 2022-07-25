@@ -31,6 +31,8 @@ export class calcHealthService {
     this.qn18Result(surveyValue);
     this.qn19Result(surveyValue);
 
+    console.log(this.mark);
+
     this.result = this.mark.reduce((accumulator, current) => {
       return accumulator + current;
     }, 0);
@@ -38,11 +40,11 @@ export class calcHealthService {
     return this.result;
   }
   qn19Result(surveyValue: survey) {
-    if (surveyValue.qn18 == "1st Dose") {
+    if (surveyValue.qn19 == "1st Dose") {
       this.mark.push(30);
-    } else if (surveyValue.qn18 == "1st & 2nd Dose") {
+    } else if (surveyValue.qn19 == "1st & 2nd Dose") {
       this.mark.push(70);
-    } else if (surveyValue.qn18 == "Others") {
+    } else if (surveyValue.qn19 == "Others") {
       this.mark.push(100);
     }
   }
@@ -227,7 +229,6 @@ export class calcHealthService {
     for (var i = 1; i <= 10; i++) {
       if (surveyValue.qn1 == i) {
         this.mark.push(i * 10);
-        console.log(this.mark);
       }
     }
   }

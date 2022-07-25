@@ -21,16 +21,16 @@ export class SurveySuccessComponent implements OnInit {
       ((this.SS_SurveyResult / 19) * 100) / 100
     );
     if (this.SS_SurveyResult > 10 && this.SS_SurveyResult < 30) {
-      this.surveyResMsg = "  Poor";
+      this.surveyResMsg = "Poor";
       this.surveyResColor = "#F50057";
     } else if (this.SS_SurveyResult >= 30 && this.SS_SurveyResult < 50) {
-      this.surveyResMsg = "  Average";
+      this.surveyResMsg = "Average";
       this.surveyResColor = "#F9A826";
     } else if (this.SS_SurveyResult >= 50 && this.SS_SurveyResult < 70) {
-      this.surveyResMsg = "  Good";
+      this.surveyResMsg = "Good";
       this.surveyResColor = "#6C63FF";
     } else if (this.SS_SurveyResult >= 70 && this.SS_SurveyResult < 100) {
-      this.surveyResMsg = "  Excellent";
+      this.surveyResMsg = "Excellent";
       this.surveyResColor = "#00BFA6";
     }
     console.log(this.SS_SurveyResult);

@@ -12,87 +12,31 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
+      <tr *ngFor="let item of userList; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
         <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp1/2020"
-            >Mark</a
-          >
+          <a href="javascript:void(0)" (click)="navigateToUserSurvey(item)">{{
+            item.name
+          }}</a>
         </td>
         <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp1/2020"
-            >EMP1</a
-          >
+          <a href="javascript:void(0)" (click)="navigateToUserSurvey(item)">{{
+            item.empCode
+          }}</a>
         </td>
         <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp1/2020"
-            >Promantus</a
-          >
+          <a href="javascript:void(0)" (click)="navigateToUserSurvey(item)">{{
+            item.company
+          }}</a>
         </td>
         <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp1/2020"
-            >Kamal</a
-          >
+          <a href="javascript:void(0)" (click)="navigateToUserSurvey(item)">{{
+            item.manager
+          }}</a>
         </td>
         <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp1/2020"
-            >Feb-2020</a
-          >
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp2/2020"
-            >Jacob</a
-          >
-        </td>
-        <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp2/2020"
-            >EMP2</a
-          >
-        </td>
-        <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp2/2020"
-            >Promantus</a
-          >
-        </td>
-        <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp2/2020"
-            >Kamal</a
-          >
-        </td>
-        <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp2/2020"
-            >Feb-2020</a
-          >
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp3/2020"
-            >Thornton</a
-          >
-        </td>
-        <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp3/2020"
-            >EMP3</a
-          >
-        </td>
-        <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp3/2020"
-            >Promantus</a
-          >
-        </td>
-        <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp3/2020"
-            >Kamal</a
-          >
-        </td>
-        <td>
-          <a href="javascript:void(0)" routerLink="/user-survey/emp3/2020"
-            >Feb-2020</a
+          <a href="javascript:void(0)" (click)="navigateToUserSurvey(item)"
+            >{{ item.month }} - {{ item.year }}</a
           >
         </td>
       </tr>
