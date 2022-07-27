@@ -30,8 +30,10 @@ export class HomeComponent implements OnInit {
 
   resData: any;
   submitBtnValue: string = "Start Survey";
+  errMsg: string = "";
   onSubmit() {
-    this.submitBtnValue = "Starting your Survey";
+    this.errMsg = "";
+    this.submitBtnValue = "Starting your Survey...";
     this.registerValue = this.registerForm.value;
     console.log(this.registerValue);
     this.registerValue.empCode = this.registerForm.value.empCode;
@@ -44,15 +46,26 @@ export class HomeComponent implements OnInit {
     this.registerValue.year = DateUtils.CURRENT_YEAR.toString();
     this.registerValue.month = DateUtils.CURRENT_MONTH.toString();
 
-    this.homeServiceService.newUser(this.registerValue).subscribe((data) => {
-      this.resData = data;
-      if (this.resData.status == 0) {
-        this.savedInSession(this.registerValue);
-        this.route.navigateByUrl("/survey");
-      } else {
+    this.homeServiceService.newUser(this.registerValue).subscribe(
+      (data) => {
+        this.resData = data;
+        console.log("After saving in DB(user): ");
+        console.log(this.resData);
+        if (this.resData.status == 0) {
+          this.savedInSession(this.registerValue);
+          this.route.navigateByUrl("/survey");
+        } else {
+          this.errMsg = this.resData.message
+          this.submitBtnValue = "Start Survey";
+        }
+      },
+      (err) => {
+        console.log("Error :");
+        console.log(err);
+        this.errMsg = "Something went wrong. Please contact administrator";
         this.submitBtnValue = "Start Survey";
       }
-    });
+    );
   }
 
   savedInSession(form: register) {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-// import anime from 'animejs/lib/anime.es.js';
+import { calcHealthService } from "src/app/CalcHealth.service";
+import { colorUtils } from "src/app/common";
 
 @Component({
   selector: "app-survey-success",
@@ -12,26 +13,26 @@ export class SurveySuccessComponent implements OnInit {
   surveyResMsg: string = "";
   surveyResColor: string = "";
 
-  constructor(private route: Router) {}
+  constructor(private route: Router, private calc: calcHealthService) {}
 
   ngOnInit(): void {
     this.SS_SurveyResult = sessionStorage.getItem("survey-result");
     console.log(this.SS_SurveyResult);
-    this.SS_SurveyResult = Math.round(
-      ((this.SS_SurveyResult / 19) * 100) / 100
-    );
-    if (this.SS_SurveyResult > 10 && this.SS_SurveyResult < 30) {
-      this.surveyResMsg = "Poor";
-      this.surveyResColor = "#F50057";
-    } else if (this.SS_SurveyResult >= 30 && this.SS_SurveyResult < 50) {
-      this.surveyResMsg = "Average";
-      this.surveyResColor = "#F9A826";
-    } else if (this.SS_SurveyResult >= 50 && this.SS_SurveyResult < 70) {
-      this.surveyResMsg = "Good";
-      this.surveyResColor = "#6C63FF";
-    } else if (this.SS_SurveyResult >= 70 && this.SS_SurveyResult < 100) {
-      this.surveyResMsg = "Excellent";
-      this.surveyResColor = "#00BFA6";
+
+    this.SS_SurveyResult = this.calc.calcHealthPercent(this.SS_SurveyResult);
+    console.log("SS_SurveyResult:" + this.SS_SurveyResult);
+
+    this.surveyResMsg = this.calc.calcHealthStatus(this.SS_SurveyResult);
+    console.log("SurveyResMsg:" + this.surveyResMsg);
+
+    if (this.surveyResMsg == "Poor") {
+      this.surveyResColor = colorUtils.COLOR_POOR;
+    } else if (this.surveyResMsg == "Average") {
+      this.surveyResColor = colorUtils.COLOR_AVERAGE;
+    } else if (this.surveyResMsg == "Good") {
+      this.surveyResColor = colorUtils.COLOR_GOOD;
+    } else if (this.surveyResMsg == "Excellent") {
+      this.surveyResColor = colorUtils.COLOR_EXCELLENT;
     }
     console.log(this.SS_SurveyResult);
     if (!this.SS_SurveyResult) {

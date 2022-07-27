@@ -32,6 +32,10 @@
       </div>
     </div>
     <div class="col-lg-8">
+      <small
+        ><i class="bi bi-info-circle-fill text-danger"></i> All Questions are
+        mandatory</small
+      >
       <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
         <ol class="list-group list-group-numbered">
           <!-- Question 1 -->
@@ -610,17 +614,40 @@
             </div>
           </li>
         </ol>
+        <small
+          ><i class="bi bi-info-circle-fill text-danger"></i> All Questions are
+          mandatory</small
+        >
         <fieldset class="text-center">
           <button
             type="submit"
             class="btn btn-md btn-success1 bg-success1 my-2 btn-center"
             [disabled]="!surveyForm.valid"
           >
-            {{submitBtnValue}}
+            {{ submitBtnValue }}
+            <span
+              class="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+              *ngIf="submitBtnValue == 'Submitting your Survey...'"
+            ></span>
           </button>
           <br />
         </fieldset>
       </form>
+      <div
+        class="alert alert-danger alert-dismissible fade show my-4"
+        *ngIf="errMsg != ''"
+        role="alert"
+      >
+        <strong>{{ errMsg }}</strong>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
     </div>
   </div>
 </section>

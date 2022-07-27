@@ -85,8 +85,10 @@ export class SurveyComponent implements OnInit {
   calcRes: number = 0;
   resData: any;
   submitBtnValue: string = "Submit";
+  errMsg: string = "";
   onSubmit() {
-    this.submitBtnValue = "Submitting your Survey";
+    this.errMsg = "";
+    this.submitBtnValue = "Submitting your Survey...";
     this.surveyValue = this.surveyForm.value;
     this.calcRes = this.calc.calculation(this.surveyValue);
 
@@ -94,29 +96,29 @@ export class SurveyComponent implements OnInit {
     this.surveyValue.year = DateUtils.CURRENT_YEAR.toString();
     this.surveyValue.month = DateUtils.CURRENT_MONTH.toString();
 
-    this.surveyValue.healthPercent = Math.round(
-      ((this.calcRes / 19) * 100) / 100
-    );
-    if (this.calcRes > 10 && this.calcRes < 30) {
-      this.surveyValue.healthStatus = "Poor";
-    } else if (this.calcRes >= 30 && this.calcRes < 50) {
-      this.surveyValue.healthStatus = "Average";
-    } else if (this.calcRes >= 50 && this.calcRes < 70) {
-      this.surveyValue.healthStatus = "Good";
-    } else if (this.calcRes >= 70 && this.calcRes < 100) {
-      this.surveyValue.healthStatus = "Excellent";
-    }
+    this.surveyValue.healthPercent = this.calc.calcHealthPercent(this.calcRes);
+
+    this.surveyValue.healthStatus = this.calc.calcHealthStatus(this.calcRes);
 
     console.log(this.surveyValue);
-    this.surveyService.newUser(this.surveyValue).subscribe((data) => {
-      this.resData = data;
-      if (this.resData.status == 0) {
-        sessionStorage.clear();
-        this.route.navigateByUrl("/survey-success");
-        sessionStorage.setItem("survey-result", this.calcRes.toString());
-      } else {
-        this.submitBtnValue = "Submit";
+    this.surveyService.newUser(this.surveyValue).subscribe(
+      (data) => {
+        this.resData = data;
+        console.log("After saving in DB(Survey): ");
+        console.log(this.resData);
+        if (this.resData.status == 0) {
+          this.route.navigateByUrl("/survey-success");
+          sessionStorage.setItem("survey-result", this.calcRes.toString());
+        } else {
+          this.submitBtnValue = "Submit";
+        }
+      },
+      (err) => {
+        console.log("Error :");
+        console.log(err);
+        this.errMsg = "Something went wrong. Please contact administrator";
+        this.submitBtnValue = "Start Survey";
       }
-    });
+    );
   }
 }

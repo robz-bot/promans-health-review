@@ -1,158 +1,210 @@
 <!--Div for Background-->
 <div class="bg">
   <div class="container row">
-    <div class="col-lg-7 d-none d-lg-block">
-      <div class="container text-center">
-        <img
-          class="mt-4"
-          src="assets/img/form.png"
-          style="height: 500px; width: 600px"
-        />
+    <div class="col-lg-6 d-none d-lg-block">
+      <div class="container text-center my-3">
+        <img src="assets/img/form.png" style="height: 500px; width: 600px" />
       </div>
     </div>
-    <div class="col-lg-5">
-      <div
-        class="container mt-4 bg-light"
-        style="border: 2px solid white; border-radius: 30px"
-      >
-        <h4 class="text-dark text-center mt-3">
-          Promantus Health Review <i class="bi bi-heart-pulse-fill"></i>
-        </h4>
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-          <fieldset>
-            <div class="form-group">
-              <label class="form-label mt-2">Name</label>
-              <input
-                type="text"
-                class="form-control form-control-sm"
-                placeholder="Name"
-                formControlName="name"
-              />
-              <div
-                *ngIf="
-                  !registerForm.controls['name'].valid &&
-                  (registerForm.controls['name'].dirty ||
-                    registerForm.controls['name'].touched)
-                "
-                class="bg-danger"
-              >
-                <div
-                  [hidden]="!registerForm.controls['name'].errors?.['required']"
-                >
-                  <small class="text-light mx-2">Name is required</small
-                  ><i
-                    class="bi bi-exclamation-triangle float-end mx-2 text-light"
-                  ></i>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label mt-4">Employee Code</label>
-              <input
-                type="text"
-                class="form-control form-control-sm"
-                placeholder="Employee Code"
-                formControlName="empCode"
-              />
-
-              <div
-                *ngIf="
-                  !registerForm.controls['empCode'].valid &&
-                  (registerForm.controls['empCode'].dirty ||
-                    registerForm.controls['empCode'].touched)
-                "
-                class="bg-danger"
-              >
-                <div
-                  [hidden]="!registerForm.controls['empCode'].errors?.['required']"
-                >
-                  <small class="text-light mx-2"
-                    >Employee Code is required</small
-                  ><i
-                    class="bi bi-exclamation-triangle float-end mx-2 text-light"
-                  ></i>
-                </div>
-              </div>
-              <div *ngIf="!isEmpCodeValid" class="bg-danger">
-                <small class="text-light mx-2">
-                  Special Characters not allowed</small
-                >
-                <i
-                  class="bi bi-exclamation-triangle float-end mx-2 text-light"
-                ></i>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label mt-4">Company</label>
-              <input
-                type="text"
-                class="form-control form-control-sm"
-                placeholder="Company"
-                formControlName="company"
-              />
-
-              <div
-                *ngIf="
-                  !registerForm.controls['company'].valid &&
-                  (registerForm.controls['company'].dirty ||
-                    registerForm.controls['company'].touched)
-                "
-                class="bg-danger"
-              >
-                <div
-                  [hidden]="!registerForm.controls['company'].errors?.['required']"
-                >
-                  <small class="text-light mx-2">Company is required</small
-                  ><i
-                    class="bi bi-exclamation-triangle float-end mx-2 text-light"
-                  ></i>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label mt-4">Manager</label>
-              <input
-                type="text"
-                class="form-control form-control-sm"
-                placeholder="Manager"
-                formControlName="manager"
-              />
-
-              <div
-                *ngIf="
-                  !registerForm.controls['manager'].valid &&
-                  (registerForm.controls['manager'].dirty ||
-                    registerForm.controls['manager'].touched)
-                "
-                class="bg-danger"
-              >
-                <div
-                  [hidden]="!registerForm.controls['manager'].errors?.['required']"
-                >
-                  <small class="text-light mx-2">Manager is required</small
-                  ><i
-                    class="bi bi-exclamation-triangle float-end mx-2 text-light"
-                  ></i>
-                </div>
-              </div>
-            </div>
-          </fieldset>
-          <br />
-          <fieldset class="text-center">
-            <button
-              type="submit"
-              class="btn btn-dark btn-md mt-0 text-center"
-              [disabled]="!registerForm.valid"
+    <div class="col-lg-6">
+      <div class="container my-4">
+        <div class="card">
+          <div class="card-header bg-warning">
+            <h4 class="text-dark text-center mt-3">
+              Promantus Health Review <i class="bi bi-heart-pulse-fill"></i>
+            </h4>
+          </div>
+          <div class="card-body">
+            <div
+              class="alert alert-danger alert-dismissible fade show text-center"
+              *ngIf="errMsg != ''"
+              role="alert"
             >
-               {{submitBtnValue}}
-            </button>
-          </fieldset>
-        </form>
-        <fieldset class="text-center my-2">
-          <small class="text-dark"
-            >Copyright &copy; 2022 - Promantus Inc.</small
-          >
-        </fieldset>
+              <strong>{{ errMsg }}</strong>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <fieldset>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-label mt-2">Name <sup><i class="bi bi-asterisk text-danger"></i></sup></label>
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        placeholder="Name"
+                        formControlName="name"
+                      />
+                      <div
+                        *ngIf="
+                          !registerForm.controls['name'].valid &&
+                          (registerForm.controls['name'].dirty ||
+                            registerForm.controls['name'].touched)
+                        "
+                        class="bg-danger"
+                      >
+                        <div
+                          [hidden]="!registerForm.controls['name'].errors?.['required']"
+                        >
+                          <small class="text-light mx-2">Name is required</small
+                          ><i
+                            class="bi bi-exclamation-triangle float-end mx-2 text-light"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-label mt-2">Employee Code <sup><i class="bi bi-asterisk text-danger"></i></sup></label>
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        placeholder="Employee Code"
+                        formControlName="empCode"
+                      />
+
+                      <div
+                        *ngIf="
+                          !registerForm.controls['empCode'].valid &&
+                          (registerForm.controls['empCode'].dirty ||
+                            registerForm.controls['empCode'].touched)
+                        "
+                        class="bg-danger"
+                      >
+                        <div
+                          [hidden]="!registerForm.controls['empCode'].errors?.['required']"
+                        >
+                          <small class="text-light mx-2"
+                            >Employee Code is required</small
+                          ><i
+                            class="bi bi-exclamation-triangle float-end mx-2 text-light"
+                          ></i>
+                        </div>
+                      </div>
+                      <div *ngIf="!isEmpCodeValid" class="bg-danger">
+                        <small class="text-light mx-2">
+                          Special Characters not allowed</small
+                        >
+                        <i
+                          class="bi bi-exclamation-triangle float-end mx-2 text-light"
+                        ></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-label mt-4">Company <sup><i class="bi bi-asterisk text-danger fs-0"></i></sup></label>
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        placeholder="Company"
+                        formControlName="company"
+                      />
+
+                      <div
+                        *ngIf="
+                          !registerForm.controls['company'].valid &&
+                          (registerForm.controls['company'].dirty ||
+                            registerForm.controls['company'].touched)
+                        "
+                        class="bg-danger"
+                      >
+                        <div
+                          [hidden]="!registerForm.controls['company'].errors?.['required']"
+                        >
+                          <small class="text-light mx-2"
+                            >Company is required</small
+                          ><i
+                            class="bi bi-exclamation-triangle float-end mx-2 text-light"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-label mt-4">Manager <sup><i class="bi bi-asterisk text-danger"></i></sup></label>
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        placeholder="Manager"
+                        formControlName="manager"
+                      />
+
+                      <div
+                        *ngIf="
+                          !registerForm.controls['manager'].valid &&
+                          (registerForm.controls['manager'].dirty ||
+                            registerForm.controls['manager'].touched)
+                        "
+                        class="bg-danger"
+                      >
+                        <div
+                          [hidden]="!registerForm.controls['manager'].errors?.['required']"
+                        >
+                          <small class="text-light mx-2"
+                            >Manager is required</small
+                          ><i
+                            class="bi bi-exclamation-triangle float-end mx-2 text-light"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <br />
+              <fieldset class="text-center">
+                <button
+                  type="submit"
+                  class="btn btn-dark btn-md mt-0 text-center"
+                  [disabled]="!registerForm.valid"
+                >
+                  {{ submitBtnValue }}
+                  <span
+                    class="spinner-border spinner-border-sm"
+                    role="status"
+                    aria-hidden="true"
+                    *ngIf="submitBtnValue == 'Starting your Survey...'"
+                  ></span>
+                </button>
+              </fieldset>
+            </form>
+            <div class="container text-center my-1">
+              <small
+                ><i class="bi bi-info-circle-fill text-warning"></i> Survey
+                taken under 2 cycles.</small
+              >
+              <div class="row m-1">
+                <div class="col-lg-6 col-sm-12 col-md-12">
+                  <span class="badge rounded-pill bg-info"
+                    >Cycle 1: Jan - June</span
+                  >
+                </div>
+                <div class="col-lg-6 col-sm-12 col-md-12">
+                  <span class="badge rounded-pill bg-info"
+                    >Cycle 2: July - Dec</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <fieldset class="text-center my-2">
+              <small class="text-dark"
+                >Copyright &copy; 2022 - Promantus Inc.</small
+              >
+            </fieldset>
+          </div>
+        </div>
       </div>
     </div>
   </div>

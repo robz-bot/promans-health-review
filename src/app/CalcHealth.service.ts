@@ -10,6 +10,21 @@ export class calcHealthService {
   private result: number = 0;
   constructor() {}
 
+  calcHealthStatus(calcRes: number): string {
+    if (calcRes > 10 && calcRes < 30) {
+      return "Poor";
+    } else if (calcRes >= 30 && calcRes < 50) {
+      return "Average";
+    } else if (calcRes >= 50 && calcRes < 70) {
+      return "Good";
+    }
+    return "Excellent";
+  }
+
+  calcHealthPercent(calcRes: number): number {
+    return Math.round(((calcRes / 19) * 100) / 100);
+  }
+
   calculation(surveyValue: survey): number {
     this.qn1Result(surveyValue);
     this.qn2Result(surveyValue);

@@ -18,3 +18,10 @@ export class DateUtils {
   });
   public static CURRENT_YEAR = DateUtils.date.getFullYear();
 }
+
+export class colorUtils {
+  public static COLOR_POOR = "#F50057";
+  public static COLOR_AVERAGE = "#F9A826";
+  public static COLOR_GOOD = "#6C63FF";
+  public static COLOR_EXCELLENT = "#00BFA6";
+}
