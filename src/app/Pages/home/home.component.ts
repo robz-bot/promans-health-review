@@ -57,6 +57,7 @@ export class HomeComponent implements OnInit {
         } else {
           this.errMsg = this.resData.message
           this.submitBtnValue = "Start Survey";
+          this.registerForm.reset()
         }
       },
       (err) => {
