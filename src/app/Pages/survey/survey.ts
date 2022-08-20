@@ -34,3 +34,8 @@ export class survey{
   "updatedDateTime": string;
   "year": string
 }
+
+export class surveyYearAndTitle{
+  "year":String;
+  "title":String;
+}

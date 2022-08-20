@@ -12,6 +12,8 @@ export class HomeServiceService {
   //Home URL
   private newUserUrl = baseUrl.BASE_URL + "addUser";
   private getAllUsersUrl = baseUrl.BASE_URL + "getAllUsers";
+  private getAllUserBasedOnCycleAndYearUrl =
+    baseUrl.BASE_URL + "getAllUserBasedOnCycleAndYear";
 
   newUser(reg: register): Observable<Object> {
     return this.httpClient.post(`${this.newUserUrl}`, reg, {
@@ -26,5 +28,15 @@ export class HomeServiceService {
         "pro-api-key": apiKey.API_KEY,
       },
     });
+  }
+  getAllUserBasedOnCycleAndYear(cycle: string, year: string) {
+    return this.httpClient.get<register[]>(
+      `${this.getAllUserBasedOnCycleAndYearUrl}/${cycle}/${year}`,
+      {
+        headers: {
+          "pro-api-key": apiKey.API_KEY,
+        },
+      }
+    );
   }
 }

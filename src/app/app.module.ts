@@ -18,6 +18,7 @@ import { UserSurveyListComponent } from "./Pages/user-survey-list/user-survey-li
 import { UserSurveyComponent } from "./Pages/user-survey/user-survey.component";
 import { LoaderComponent } from './Pages/loader/loader.component';
 import { SurveySucessDonutComponent } from './Pages/Charts/survey-sucess-donut/survey-sucess-donut.component';
+import { AdminWidgetComponent } from './Pages/admin-widget/admin-widget.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SurveySucessDonutComponent } from './Pages/Charts/survey-sucess-donut/s
     UserSurveyComponent,
     LoaderComponent,
     SurveySucessDonutComponent,
+    AdminWidgetComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,8 @@ export class SurveyServiceService {
   private addSurveyUrl = baseUrl.BASE_URL + "addSurvey";
   private getSurveyByEmpCodeYearAndMonthUrl =
     baseUrl.BASE_URL + "getSurveyByEmpCodeYearAndMonth";
+  private getSurveyYearAndTitleUrl = baseUrl.BASE_URL + "getSurveyYearAndTitle";
+
   newUser(sur: survey): Observable<Object> {
     return this.httpClient.post(`${this.addSurveyUrl}`, sur, {
       headers: {
@@ -34,5 +36,13 @@ export class SurveyServiceService {
         },
       }
     );
+  }
+
+  getSurveyYearAndTitle(): Observable<Object> {
+    return this.httpClient.get(`${this.getSurveyYearAndTitleUrl}`, {
+      headers: {
+        "pro-api-key": apiKey.API_KEY,
+      },
+    });
   }
 }

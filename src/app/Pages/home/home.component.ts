@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     this.registerValue = this.registerForm.value;
     console.log(this.registerValue);
     this.registerValue.empCode = this.registerForm.value.empCode;
-    if (!patterns.ONLY_ALPHNUMERIC_PATTERN.test(this.registerValue.empCode)) {
+    if (!patterns.EMPCODE_PATTERN.test(this.registerValue.empCode)) {
       this.isEmpCodeValid = false;
       this.submitBtnValue = "Start Survey";
       return;

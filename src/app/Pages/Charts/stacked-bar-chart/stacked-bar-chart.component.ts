@@ -40,26 +40,23 @@ export class StackedBarChartComponent implements OnInit {
     this.chartOptions = {
       series: [
         {
-          name: "When did you most recently become ill or apply for a leave of absence?",
+          name: "Excellent Health",
           //data:[2020,2021,2022]
           data: [44, 55, 41],
         },
         {
-          name: "Qn2",
+          name: "Good Health",
           data: [53, 32, 33],
         },
         {
-          name: "Qn3",
+          name: "Average Health",
           data: [12, 17, 11],
         },
         {
-          name: "Qn4",
+          name: "Poor Health",
           data: [9, 7, 5],
         },
-        {
-          name: "Qn5",
-          data: [25, 12, 19],
-        },
+     
       ],
       chart: {
         type: "bar",
@@ -77,7 +74,7 @@ export class StackedBarChartComponent implements OnInit {
         colors: ["#fff"],
       },
       title: {
-        text: "Year-wise comparison Survey",
+        text: "Year-wise Health Status Comparison ",
       },
       xaxis: {
         categories: [2022, 2021, 2021],

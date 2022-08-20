@@ -9,6 +9,7 @@ export class apiKey {
 
 export class patterns {
   public static ONLY_ALPHNUMERIC_PATTERN = new RegExp("^[a-zA-Z0-9]*$");
+  public static EMPCODE_PATTERN = new RegExp("^[a-zA-Z0-9]+[-][a-zA-Z0-9]+$");
 }
 
 export class DateUtils {

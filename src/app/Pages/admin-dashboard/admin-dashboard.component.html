@@ -1,36 +1,40 @@
 <app-admin-header></app-admin-header>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-6">
-            <div id="chart">
-                <h5 class="text-center my-2">Jan to June 2022</h5>
-                <apx-chart
-                  [series]="chartOptions.series"
-                  [chart]="chartOptions.chart"
-                  [labels]="chartOptions.labels"
-                  [responsive]="chartOptions.responsive"
-                  [legend]="chartOptions.legend"
-                ></apx-chart>
-              </div>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-6">
-            <div id="chart">
-                <h5 class="text-center my-2">July to Dec 2022</h5>
-                <apx-chart
-                  [series]="chartOptions.series"
-                  [chart]="chartOptions.chart"
-                  [labels]="chartOptions.labels"
-                  [responsive]="chartOptions.responsive"
-                ></apx-chart>
-              </div>
-        </div>
+<div class="container my-2">
+  <h4>Cycle 1 Health status (Jan to June) - 2022</h4>
+  <app-admin-widget></app-admin-widget>
+  <h4>Cycle 2 Health status (July to Dec) - 2022</h4>
+  <app-admin-widget></app-admin-widget>
+  <!-- <hr /> -->
+  <!-- <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-6">
+      <div id="chart">
+        <h5 class="text-center my-2">Jan to June 2022</h5>
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [labels]="chartOptions.labels"
+          [responsive]="chartOptions.responsive"
+          [legend]="chartOptions.legend"
+        ></apx-chart>
+      </div>
     </div>
-    <hr>
-    <div class="row">
-        <div class="col">
-            <app-stacked-bar-chart></app-stacked-bar-chart>
-        </div>
+    <div class="col-sm-12 col-md-12 col-lg-6">
+      <div id="chart">
+        <h5 class="text-center my-2">July to Dec 2022</h5>
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [labels]="chartOptions.labels"
+          [responsive]="chartOptions.responsive"
+        ></apx-chart>
+      </div>
     </div>
-    <hr>
+  </div> -->
+  <hr />
+  <div class="row">
+    <div class="col">
+      <app-stacked-bar-chart></app-stacked-bar-chart>
+    </div>
+  </div>
+  <hr />
 </div>
-
