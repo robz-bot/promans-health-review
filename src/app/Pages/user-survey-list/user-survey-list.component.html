@@ -7,7 +7,7 @@
     >
       <p class="accordion-header" id="headingOne">
         <button
-        (click)="enableTab1(item.year)"
+          (click)="enableTab1(item.year)"
           class="accordion-button bg-warning text-dark"
           type="button btn-dark"
           data-bs-toggle="collapse"
@@ -29,7 +29,7 @@
           <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
               <button
-              #cycle1Tab
+                #cycle1Tab
                 class="nav-link active"
                 id="cycle-1-tab"
                 data-bs-toggle="pill"
@@ -95,6 +95,13 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <tr>
+                      <td colspan="6">
+                        <p *ngIf="userListCount == 0" class="text-center">
+                          No Record(s) found!
+                        </p>
+                      </td>
+                    </tr>
                     <tr *ngFor="let item of userList; let i = index">
                       <th scope="row">{{ i + 1 }}</th>
                       <td>
@@ -157,6 +164,13 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <tr>
+                      <td colspan="6">
+                        <p *ngIf="userListCount == 0" class="text-center">
+                          No Record(s) found!
+                        </p>
+                      </td>
+                    </tr>
                     <tr *ngFor="let item of userList; let i = index">
                       <th scope="row">{{ i + 1 }}</th>
                       <td>
@@ -219,6 +233,13 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <tr>
+                      <td colspan="6">
+                        <p *ngIf="userListCount == 0" class="text-center">
+                          No Record(s) found!
+                        </p>
+                      </td>
+                    </tr>
                     <tr *ngFor="let item of userList; let i = index">
                       <th scope="row">{{ i + 1 }}</th>
                       <td>

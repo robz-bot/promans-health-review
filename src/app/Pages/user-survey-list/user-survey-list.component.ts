@@ -46,10 +46,12 @@ export class UserSurveyListComponent implements OnInit {
   ];
 
   userList: register[] = [];
+  userListCount:number =0;
   getAllUsers() {
     this.homeService.getAllUsers().subscribe((data) => {
       console.log(data);
       this.userList = data;
+      this.userListCount = this.userList.length
     });
   }
 
@@ -61,6 +63,7 @@ export class UserSurveyListComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         this.userList = data;
+        this.userListCount = this.userList.length
       });
       
   }
@@ -68,7 +71,7 @@ export class UserSurveyListComponent implements OnInit {
   surveyYearAndTitleList: any;
   getSurveyYearAndTitle() {
     this.surveyService.getSurveyYearAndTitle().subscribe((data) => {
-      console.log(data);
+      console.log("getSurveyYearAndTitle "+data);
       this.surveyYearAndTitleList = data;
     });
     console.log(this.surveyYearAndTitleList[0].year)
